@@ -34,4 +34,12 @@ export async function PUT(request: Request) {
     },
   });
   return NextResponse.json(updatedShift);
+}
+
+export async function DELETE(request: Request) {
+  const { id } = await request.json();
+  const deletedShift = await prisma.shift.delete({
+    where: { id },
+  });
+  return NextResponse.json(deletedShift);
 } 

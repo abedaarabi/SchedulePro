@@ -36,11 +36,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Switch } from "@/components/ui/switch";
 import { Calendar, Clock, User, Sun, Moon, Trash2, Edit2 } from "lucide-react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Switch } from "@/components/ui/switch";
 
 const localizer = momentLocalizer(moment);
 
@@ -193,7 +193,11 @@ export default function EnhancedCafeSchedule() {
       setShifts(updatedShifts);
 
       try {
-        await axios.delete(`/api/shifts`, { data: { id: shiftToDelete.id } });
+        const xx = await axios.delete(`/api/shifts`, {
+          data: { id: shiftToDelete.id },
+        });
+        console.log(xx);
+
         toast.success("Shift deleted successfully!", {
           className: "toast-success",
         });
@@ -260,7 +264,7 @@ export default function EnhancedCafeSchedule() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-6">
           <div className="lg:col-span-3">
-            <Card className="overflow-hidden bg-white/50 dark:bg-gradient-to-b dark:from-violet-950/50 dark:to-fuchsia-950/50 border-violet-500/20">
+            <Card className="overflow-hidden bg-white/50 dark:bg-gradient-to-b dark:from-violet-950 dark:to-fuchsia-950 border-violet-500/20">
               <CardContent className="p-0">
                 <BigCalendar
                   localizer={localizer}
@@ -285,7 +289,7 @@ export default function EnhancedCafeSchedule() {
             </Card>
           </div>
           <div>
-            <Card className="bg-white/50 dark:bg-gradient-to-b dark:from-violet-950/50 dark:to-fuchsia-950/50 border-violet-500/20">
+            <Card className="bg-white/50 dark:bg-gradient-to-b dark:from-violet-950 dark:to-fuchsia-950 border-violet-500/20">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold text-blue-400">
                   Shift List
@@ -304,7 +308,7 @@ export default function EnhancedCafeSchedule() {
                           .map((shift) => (
                             <li
                               key={shift.id}
-                              className="flex justify-between items-center p-3 bg-purple-900/50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+                              className="flex justify-between items-center p-3 bg-purple-900/50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 dark:bg-purple-900/50"
                             >
                               <div className="flex items-center space-x-3">
                                 <div
@@ -345,7 +349,7 @@ export default function EnhancedCafeSchedule() {
                           .map((shift) => (
                             <li
                               key={shift.id}
-                              className="flex justify-between items-center p-3 bg-purple-900/50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+                              className="flex justify-between items-center p-3 bg-purple-900/50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 dark:bg-purple-900/50"
                             >
                               <div className="flex items-center space-x-3">
                                 <div

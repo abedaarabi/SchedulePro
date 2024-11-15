@@ -140,43 +140,39 @@ export default function Home() {
           <nav
             className={`${
               isMenuOpen ? "flex" : "hidden"
-            } md:flex items-center space-x-8 absolute md:relative top-full left-0 right-0 md:top-auto bg-black/95 md:bg-transparent p-4 md:p-0 border-b border-gray-800/50 md:border-0`}
+            } md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 absolute md:relative top-full left-0 right-0 md:top-auto bg-black/95 md:bg-transparent p-4 md:p-0 border-b border-gray-800/50 md:border-0 ${
+              isMenuOpen ? "w-full h-screen justify-center" : ""
+            }`}
           >
             <Link
               href="#home"
-              className="hover:text-violet-400 transition-colors"
+              className="hover:text-violet-400 transition-colors px-3 py-2"
             >
               Home
             </Link>
             <Link
               href="#features"
-              className="hover:text-violet-400 transition-colors"
+              className="hover:text-violet-400 transition-colors px-3 py-2"
             >
               Features
             </Link>
             <Link
               href="#pricing"
-              className="hover:text-violet-400 transition-colors"
+              className="hover:text-violet-400 transition-colors px-3 py-2"
             >
               Pricing
             </Link>
             <Link
               href="#about"
-              className="hover:text-violet-400 transition-colors"
+              className="hover:text-violet-400 transition-colors px-3 py-2"
             >
               About
             </Link>
             <Link
               href="/pages/login"
-              className="px-4 py-2 rounded-lg border border-violet-500/30 hover:border-violet-500 transition-all duration-300"
-            >
-              Login
-            </Link>
-            <Link
-              href="#cta"
               className="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 px-6 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-violet-500/25"
             >
-              Start Free Trial
+              Login
             </Link>
           </nav>
         </div>
@@ -223,9 +219,9 @@ export default function Home() {
             >
               Our scheduling app combines cutting-edge AI technology with a
               user-friendly interface, making it easier than ever to manage your
-              restaurant&apos;s staff and schedules. Experience seamless integration,
-              real-time updates, and a collaborative environment that enhances
-              productivity and employee satisfaction.
+              restaurant&apos;s staff and schedules. Experience seamless
+              integration, real-time updates, and a collaborative environment
+              that enhances productivity and employee satisfaction.
             </motion.p>
 
             <motion.div
@@ -262,35 +258,70 @@ export default function Home() {
       </section>
 
       {/* App Description Section */}
-      <section className="py-32 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-500/10 to-fuchsia-500/10 opacity-20" />
-        <div className="max-w-7xl mx-auto relative text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"
-          >
-            Revolutionize Your Scheduling
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto"
-          >
-            Our scheduling app combines cutting-edge AI technology with a
-            user-friendly interface, making it easier than ever to manage your
-            restaurant&apos;s staff and schedules. Experience seamless integration,
-            real-time updates, and a collaborative environment that enhances
-            productivity and employee satisfaction.
-          </motion.p>
-          <div className="flex justify-center">
-            <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg">
-              <Image src={app} alt="Scheduling App" className="w-full h-auto" />
-            </div>
+      <section className="py-20 bg-gradient-to-r dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="md:w-1/2 relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-blue-500 rounded-3xl transform rotate-6 opacity-20"></div>
+              <Image
+                src={app}
+                alt="Smart Scheduling & Shift Management"
+                width={700}
+                height={500}
+                className="rounded-3xl shadow-2xl relative z-10"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="md:w-1/2 space-y-6"
+            >
+              <h3 className="text-3xl md:text-4xl  bg-clip-text text-transparent font-semibold bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 dark:to-purple-400">
+                Smart Scheduling & Shift Management
+              </h3>
+              <p className="text-lg text-gray-100 dark:text-gray-100 leading-relaxed">
+                Discover our innovative scheduling and shift management
+                solutions that streamline operations and enhance team
+                collaboration. Our AI-driven platform empowers businesses to
+                optimize staff allocation and improve operational efficiency.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
+                  <p className="text-gray-100 dark:text-gray-100">
+                    Real-time scheduling and shift management
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-fuchsia-500 rounded-full"></div>
+                  <p className="text-gray-100 dark:text-gray-100">
+                    Shift planning and optimization
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
+                  <p className="text-gray-100 dark:text-gray-100">
+                    Comprehensive reporting and analytics for shifts
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/pages/calender"
+                className="inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Explore Scheduling
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -461,10 +492,10 @@ export default function Home() {
             >
               <h3 className="text-3xl font-bold mb-6">Our Mission</h3>
               <p className="text-gray-400 mb-6">
-                We&apos;re on a mission to revolutionize restaurant scheduling. By
-                combining AI technology with human-centered design, we&apos;re making
-                staff management more efficient, fair, and enjoyable for
-                everyone involved.
+                We&apos;re on a mission to revolutionize restaurant scheduling.
+                By combining AI technology with human-centered design,
+                we&apos;re making staff management more efficient, fair, and
+                enjoyable for everyone involved.
               </p>
               <p className="text-gray-400">
                 Founded by restaurant industry veterans, we understand the
