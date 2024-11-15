@@ -283,7 +283,7 @@ export default function Home() {
           >
             Our scheduling app combines cutting-edge AI technology with a
             user-friendly interface, making it easier than ever to manage your
-            restaurant's staff and schedules. Experience seamless integration,
+            restaurant&apos;s staff and schedules. Experience seamless integration,
             real-time updates, and a collaborative environment that enhances
             productivity and employee satisfaction.
           </motion.p>

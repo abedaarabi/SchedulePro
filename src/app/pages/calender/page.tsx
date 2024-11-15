@@ -16,7 +16,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   Select,
@@ -38,17 +37,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Switch } from "@/components/ui/switch";
-import {
-  X,
-  Calendar,
-  Clock,
-  User,
-  Sun,
-  Moon,
-  Plus,
-  Trash2,
-  Edit2,
-} from "lucide-react";
+import { Calendar, Clock, User, Sun, Moon, Trash2, Edit2 } from "lucide-react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
